@@ -1,0 +1,7 @@
+export const ADD_TODO = "ADD_TODO"
+export const TOGGLE_TODO = "TOGGLE_TODO"
+export const SET_FILTER = "SET_FILTER";
+export const ADD_EVENT = "ADD_EVENT";
+export const FETCH_EVENTS_PENDING = 'FETCH_EVENTS_PENDING';
+export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
+export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
