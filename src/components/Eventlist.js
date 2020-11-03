@@ -5,7 +5,7 @@ import fetchEventsAction from '../redux/fetchEvents';
 
 // import { getEventsError, getEvents, getEventsPending } from '../redux/reducers/events';
 
-function Eventlist({ events, fetchEvents, error, pending, fetchItems }) {
+function Eventlist({ events, fetchEvents, pending, fetchedEvents }) {
 
     useEffect(() => {
         fetchEvents()
@@ -19,7 +19,7 @@ function Eventlist({ events, fetchEvents, error, pending, fetchItems }) {
                 <li>Hörnerfest</li>
                 <li>MeraLuna</li>
                { pending? <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" height="50px"></img> :null}
-                {fetchItems ? fetchItems.map((item, index) => {
+                {fetchedEvents ? fetchedEvents.map((item, index) => {
                     return <li key={item.id}>{item.name}</li>
                 }) : null}
 
@@ -35,12 +35,12 @@ function Eventlist({ events, fetchEvents, error, pending, fetchItems }) {
 }
 
 const mapStateToProps = state => {
-    const { byIds, allIds, error, pending, fetchItems } = state.events || {};
+    const { byIds, allIds, error, pending, fetchedEvents } = state.events || {};
         const events =
         allIds
             ? allIds.map(id => (byIds ? { ...byIds[id], id } : null))
             : null;
-    return { events, error, pending, fetchItems };
+    return { events, error, pending, fetchedEvents };
 };
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchEvents: fetchEventsAction

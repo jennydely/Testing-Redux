@@ -4,7 +4,7 @@ const initialState = {
   allIds: [],
   byIds: {},
   pending: false,
-  fetchItems: [],
+  fetchedEvents: [],
   error: null
 };
 
@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                fetchItems: action.payload
+                fetchedEvents: action.payload
             }
         case FETCH_EVENTS_ERROR:
             return {
