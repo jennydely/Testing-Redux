@@ -34,7 +34,7 @@ export function fetchEventsError(error) {
 
 export const togglePacklist = id => ({
     type: TOGGLE_PACKLIST,
-    payload: { id }
+    payload: {id}
   });
 
 export function fetchPacklistsPending() {

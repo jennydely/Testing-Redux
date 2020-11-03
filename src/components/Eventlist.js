@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import fetchEventsAction from '../redux/fetchEvents';
 
-// import { getEventsError, getEvents, getEventsPending } from '../redux/reducers/events';
-
 function Eventlist({ events, fetchEvents, pending, fetchedEvents }) {
 
     useEffect(() => {
         fetchEvents()
-    }, [])
+    },[fetchEvents])
 
         return (
         <>
@@ -18,7 +16,7 @@ function Eventlist({ events, fetchEvents, pending, fetchedEvents }) {
                 <li>Rockharz</li>
                 <li>Hörnerfest</li>
                 <li>MeraLuna</li>
-               { pending? <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" height="50px"></img> :null}
+               { pending? <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif" alt="loading" height="50px"></img> :null}
                 {fetchedEvents ? fetchedEvents.map((item, index) => {
                     return <li key={item.id}>{item.name}</li>
                 }) : null}

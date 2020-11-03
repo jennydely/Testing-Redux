@@ -1,19 +1,19 @@
 import { VISIBILITY_FILTERS } from "../constants";
 
+export const getEventState = store => store.events;
+
+export const getEvents = store => getEventState(store).events
+
 export const getPacklistsState = store => store.packlists;
 
-export const getPacklistsList = store =>
-  getPacklistsState(store) ? getPacklistsState(store).allIds : [];
+export const getPacklists = store => getPacklistsState(store).packlists;
 
-export const getPacklistsById = (store, id) =>
-  getPacklistsState(store) ? { ...getPacklistsState(store).byIds[id], id } : {};
 
 /**
  * example of a slightly more complex selector
  * select from store combining information from multiple reducers
  */
-export const getPacklists = store =>
-  getPacklistsList(store).map(id => getPacklistsById(store, id));
+
 
 export const getPacklistsByVisibilityFilter = (store, visibilityFilter) => {
   const allPacklists = getPacklists(store);
@@ -28,14 +28,3 @@ export const getPacklistsByVisibilityFilter = (store, visibilityFilter) => {
   }
 };
 
-
-  export const getEventList = store =>
-  store && store.events ? store.events.allIds : [];
-
-  export const getEventsById = (store, id) =>
-  store && store.events && store.events.byIds
-    ? { ...store.events.byIds[id], id }
-    : {};
-
-  export const getEvents = store =>
-  getEventList(store).map(id => getEventsById(store, id));

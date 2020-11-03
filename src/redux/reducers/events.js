@@ -8,7 +8,7 @@ const initialState = {
   error: null
 };
 
-export default function (state = initialState, action) {
+export default function events (state = initialState, action) {
   switch (action.type) {
     case ADD_EVENT: {
       const { id, content } = action.payload;
@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
           ...state.byIds,
           [id]: {
             content,
-            chosen: false
+            
           }
         }
       };
