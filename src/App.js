@@ -1,7 +1,8 @@
 import React from "react";
 import Eventlist from "./components/Eventlist";
-import Packlist from "./components/Packlist";
 import AddEvent from "./components/AddEvent";
+import Packlist from "./components/Packlist";
+import Favouritelist from "./components/Favouritelist";
 
 
 
@@ -13,6 +14,7 @@ export default function App() {
             <Eventlist />
             <AddEvent />
             <Packlist />
+            <Favouritelist />
             
         </>
 
